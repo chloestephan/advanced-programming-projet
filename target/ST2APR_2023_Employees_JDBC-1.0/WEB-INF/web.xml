@@ -48,6 +48,15 @@
         <servlet-name>modifyInternController</servlet-name>
         <url-pattern>/modifyInternController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PrepareModifyInternController</servlet-name>
+        <servlet-class>com.apr2023.ctrl.PrepareModifyInternController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PrepareModifyInternController</servlet-name>
+        <url-pattern>/PrepareModifyInternController</url-pattern>
+    </servlet-mapping>
     
     <context-param>
         <param-name>login</param-name>

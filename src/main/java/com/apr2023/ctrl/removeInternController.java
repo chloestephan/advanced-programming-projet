@@ -73,6 +73,9 @@ public class removeInternController extends HttpServlet {
 
             // Close the connection
             connection.close();
+
+            //TODO : redirect vers même page avec session connectée
+            request.getRequestDispatcher(TextConstants.JSP_LOGIN_PAGE).forward(request, response);
         }
     }
 

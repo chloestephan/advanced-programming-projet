@@ -43,26 +43,9 @@ public class modifyInternController extends HttpServlet {
         if (request.getParameter("action") == null) {
             request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
         } else {
-            DBActions dbActions = new DBActions(dbUrl, dbUser, dbPwd);
-
             // Establish a connection to the database
             Connection connection;
-            try {
-                connection = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
 
-            // *** get the intern to be modified info ***
-            // get the sql request to modify intern
-            String sql = TextConstants.QUERY_UPDATE_INTERN;
-            PreparedStatement stmt = connection.prepareStatement(sql);
-
-            //get the parameters to insert into the database
-            String username = request.getParameter("firstName").toLowerCase() + "_" + request.getParameter("lastName").toLowerCase();
-
-            // Close the connection
-            connection.close();
         }
     }
 

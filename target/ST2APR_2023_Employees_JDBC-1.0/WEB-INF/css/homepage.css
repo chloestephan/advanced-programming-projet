@@ -109,19 +109,7 @@ h1 {
     color: #009879;
 }
 
-/*
-.addIntern {
-  display: none;
-}
 
-.modifyIntern {
-  display: none;
-}
-
-.deleteIntern {
-  display: none;
-}
-*/
 
 @media screen and (max-width: 500px) {
   .header a {

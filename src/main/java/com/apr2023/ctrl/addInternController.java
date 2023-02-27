@@ -147,6 +147,7 @@ public class addInternController extends HttpServlet {
                 stmtLinkInternToTutor.executeUpdate();
 
                 //TODO : recharger la meme page avec le tableau mis à jour
+                request.getRequestDispatcher(TextConstants.JSP_LOGIN_PAGE).forward(request, response);
             } else {
                 request.setAttribute("errKey", TextConstants.ERROR_MESSAGE);
             }

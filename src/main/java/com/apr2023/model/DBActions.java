@@ -3,8 +3,7 @@ package com.apr2023.model;
 import java.sql.*;
 import java.util.ArrayList;
 
-import static com.apr2023.utils.TextConstants.QUERY_SELECT_INTERNS_FOR_ONE_TUTOR;
-import static com.apr2023.utils.TextConstants.QUERY_SELECT_TUTOR_NAME;
+import static com.apr2023.utils.TextConstants.*;
 
 /**
  *
@@ -95,5 +94,43 @@ public class DBActions {
         }
 
         return listAssociationTutorInterns;
+    }
+
+    public ArrayList<Interns> getInternInfo(int idIntern) {
+        ArrayList<Interns> intern = new ArrayList<>();
+        String fullQuery = QUERY_GET_ALL_INTERN_INFO + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                Interns internInfo = new Interns();
+                internInfo.setId(rs.getInt("ID"));
+                internInfo.setFirstname(rs.getString("FIRSTNAME"));
+                internInfo.setLastname(rs.getString("LASTNAME"));
+                internInfo.setEmail(rs.getString("EMAIL"));
+                internInfo.setGroupe(rs.getString("GROUPE"));
+                internInfo.setDebut_stage(rs.getDate("DEBUT_STAGE"));
+                internInfo.setFin_stage(rs.getDate("FIN_STAGE"));
+                internInfo.setEntreprise(rs.getString("ENTREPRISE"));
+                internInfo.setMaitre_de_stage(rs.getString("MAITRE_DE_STAGE"));
+                internInfo.setAdresse_stage(rs.getString("ADRESSE_STAGE"));
+                internInfo.setCahier_des_charges(rs.getBoolean("CAHIER_DES_CHARGES"));
+                internInfo.setFiche_visite(rs.getBoolean("FICHE_VISITE"));
+                internInfo.setFiche_evaluation(rs.getBoolean("FICHE_EVALUATION"));
+                internInfo.setSondage_web(rs.getBoolean("SONDAGE_WEB"));
+                internInfo.setRapport_rendu(rs.getBoolean("RAPPORT_RENDU"));
+                internInfo.setSoutenance(rs.getBoolean("SOUTENANCE"));
+                internInfo.setVisite_planifiee(rs.getBoolean("VISITE_PLANIFIEE"));
+                internInfo.setVisite_faite(rs.getBoolean("VISITE_FAITE"));
+                internInfo.setNote_tech(rs.getFloat("NOTE_TECH"));
+                internInfo.setNote_com(rs.getFloat("NOTE_COM"));
+
+                intern.add(internInfo);
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return intern;
     }
 }
