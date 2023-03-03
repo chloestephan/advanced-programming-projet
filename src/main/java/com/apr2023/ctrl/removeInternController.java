@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,7 +76,11 @@ public class removeInternController extends HttpServlet {
             connection.close();
 
             //TODO : redirect vers même page avec session connectée
-            request.getRequestDispatcher(TextConstants.JSP_LOGIN_PAGE).forward(request, response);
+            //get tutor id from session
+            HttpSession session = request.getSession();
+            int tutorId = (int) session.getAttribute("tutorId");
+            request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(tutorId));
+            response.sendRedirect(request.getRequestURI());
         }
     }
 

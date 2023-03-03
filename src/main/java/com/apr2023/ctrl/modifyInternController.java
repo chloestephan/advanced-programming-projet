@@ -40,13 +40,13 @@ public class modifyInternController extends HttpServlet {
         String dbUser = prop.getProperty("dbUser");
         String dbPwd = prop.getProperty("dbPwd");
 
-        if (request.getParameter("action") == null) {
-            request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
-        } else {
+        //if (request.getParameter("action") == null) {
+        //    request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
+        //} else {
             // Establish a connection to the database
             Connection connection;
 
-        }
+        //}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

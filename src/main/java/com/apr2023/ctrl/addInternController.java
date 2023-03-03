@@ -5,10 +5,7 @@ import com.apr2023.utils.TextConstants;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,6 +42,8 @@ public class addInternController extends HttpServlet {
         if (request.getParameter("action") == null) {
             request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
         } else {
+            DBActions dbActions = new DBActions(dbUrl, dbUser, dbPwd);
+
             // Establish a connection to the database
             Connection connection;
             try {
@@ -128,26 +127,23 @@ public class addInternController extends HttpServlet {
             PreparedStatement stmtGetInternId = connection.prepareStatement(sqlGetInternId);
             stmtGetInternId.setString(1, username);
             ResultSet rs = stmtGetInternId.executeQuery();
+
             if (rs.next()) {
                 int idIntern = rs.getInt("id");
-                //get tutor id
-                int idTutor = 0;
 
-                Cookie[] getCookie = request.getCookies();
-                for (Cookie cookie : getCookie) {
-                    if (cookie.getName().equals("tutorId")) {
-                        idTutor = Integer.parseInt(cookie.getValue());
-                    }
-                }
+                //get tutor id from session
+                HttpSession session = request.getSession();
+                int tutorId = (int) session.getAttribute("tutorId");
+
                 //insert into database intern linked to tutor
                 String sqlLinkInternToTutor = TextConstants.QUERY_INSERT_NEW_INTERN_LINK_TO_TUTOR;
                 PreparedStatement stmtLinkInternToTutor = connection.prepareStatement(sqlLinkInternToTutor);
-                stmtLinkInternToTutor.setInt(1, idTutor);
+                stmtLinkInternToTutor.setInt(1, tutorId);
                 stmtLinkInternToTutor.setInt(2, idIntern);
                 stmtLinkInternToTutor.executeUpdate();
 
-                //TODO : recharger la meme page avec le tableau mis à jour
-                request.getRequestDispatcher(TextConstants.JSP_LOGIN_PAGE).forward(request, response);
+                request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(tutorId));
+                response.sendRedirect(request.getRequestURI());
             } else {
                 request.setAttribute("errKey", TextConstants.ERROR_MESSAGE);
             }

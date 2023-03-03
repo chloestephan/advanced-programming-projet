@@ -42,21 +42,18 @@ public class DBActions {
 
     }
 
-    public ArrayList<Tutors> getTutorName(int idTutor) {
-        ArrayList<Tutors> Tutors = new ArrayList<>();
+    public String getTutorName(int idTutor) {
+        String tutorName = "";
         String query = QUERY_SELECT_TUTOR_NAME + idTutor;
         rs = getResultSet(query);
         try {
             while (rs.next()) {
-                Tutors Tutor = new Tutors();
-                Tutor.setId(idTutor);
-                Tutor.setName(rs.getString("name"));
-                Tutors.add(Tutor);
+                tutorName = rs.getString("name");
             }
         } catch (SQLException sqle) {
             System.out.println("Error getting tutor name: " + sqle.getMessage() + " " + sqle.getErrorCode());
         }
-        return Tutors;
+        return tutorName;
     }
 
     public ArrayList<Interns> getAssociationTutorAndInterns(int idTutor) {

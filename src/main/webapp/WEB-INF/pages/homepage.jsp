@@ -23,9 +23,8 @@
       <!-- TODO : search bar -->
 
       <div class="header-right">
-        <c:forEach items="${tutorName}" var="tutor">
-          <a class="tutorName">${tutor.name}</a>
-        </c:forEach>
+        <c:set var="tutorName" value="${sessionScope.tutorName}" />
+        <a class="tutorName">${tutorName}</a>
 
         <form action="Controller" method="get">
           <input type="submit" value="Se déconnecter" class="active">

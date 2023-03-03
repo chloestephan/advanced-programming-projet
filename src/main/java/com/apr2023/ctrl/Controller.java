@@ -10,10 +10,7 @@ import com.apr2023.utils.TextConstants;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -77,12 +74,12 @@ public class Controller extends HttpServlet {
                 if (username.equals(UsernameTutor) && password.equals(PasswordTutor)) {
                     //if they match, get all the interns associated to that tutor and get the name of the tutor
                     request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(IdTutor));
-                    request.setAttribute("tutorName", dbActions.getTutorName(IdTutor));
+                    String tutorName = String.valueOf(dbActions.getTutorName(IdTutor));
 
-                    //enter the tutor id in the cookies
-                    Cookie cookieTutorId = new Cookie("tutorId", String.valueOf(IdTutor));
-                    cookieTutorId.setMaxAge(60 * 60 * 24);
-                    response.addCookie(cookieTutorId);
+                    //create a session and store the tutor ID as an attribute
+                    HttpSession session = request.getSession();
+                    session.setAttribute("tutorId", IdTutor);
+                    session.setAttribute("tutorName", tutorName);
 
                     //forward to the home page
                     request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
