@@ -93,7 +93,7 @@ public class DBActions {
         return listAssociationTutorInterns;
     }
 
-    public ArrayList<Interns> getInternInfo(int idIntern) {
+    public ArrayList<Interns> getInternInfoToModify(int idIntern) {
         ArrayList<Interns> intern = new ArrayList<>();
         String fullQuery = QUERY_GET_ALL_INTERN_INFO + idIntern;
         rs = getResultSet(fullQuery);

@@ -8,8 +8,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpSession;
 
+import javax.xml.transform.Result;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
@@ -33,8 +34,7 @@ public class PrepareModifyInternController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
-        Properties prop;
-        prop = new Properties();
+        Properties prop = new Properties();
         InputStream inputStream = getServletContext().getResourceAsStream(TextConstants.DB_CONFIG_PATH);
         prop.load(inputStream);
 
@@ -55,23 +55,17 @@ public class PrepareModifyInternController extends HttpServlet {
                 throw new RuntimeException(e);
             }
 
-            // *** get intern info ***
-            String sql = TextConstants.QUERY_GET_ALL_INTERN_INFO;
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            int internId = Integer.parseInt(request.getParameter("internId"));
+            // *** get intern infos ***
+            //get intern id
+            String internId = request.getParameter("internId");
+            int idIntern = Integer.parseInt(internId);
 
-            stmt.setInt(1, internId);
-            ResultSet rs = stmt.executeQuery();
+            //get the info
+            request.setAttribute("internInfo", dbActions.getInternInfoToModify(idIntern));
+            request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
 
-            if (rs.next()) {
-                request.setAttribute("intern", dbActions.getInternInfo(internId));
-                request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
-            } else {
-                request.setAttribute("errKey", TextConstants.ERROR_MESSAGE);
             }
         }
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
     /**
