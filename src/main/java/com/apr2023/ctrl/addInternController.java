@@ -143,7 +143,7 @@ public class addInternController extends HttpServlet {
                 stmtLinkInternToTutor.executeUpdate();
 
                 request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(tutorId));
-                response.sendRedirect(request.getRequestURI());
+                request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
             } else {
                 request.setAttribute("errKey", TextConstants.ERROR_MESSAGE);
             }
