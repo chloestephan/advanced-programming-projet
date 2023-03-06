@@ -30,6 +30,18 @@ body {
   font-weight: bold;
 }
 
+.header a.logo:hover {
+  float: left;
+  color: #009879;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  line-height: 25px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .active {
   background-color: #009879;
   color: #f1f1f1;
