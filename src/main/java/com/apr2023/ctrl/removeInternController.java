@@ -75,12 +75,11 @@ public class removeInternController extends HttpServlet {
             // Close the connection
             connection.close();
 
-            //TODO : redirect vers même page avec session connectée
             //get tutor id from session
             HttpSession session = request.getSession();
             int tutorId = (int) session.getAttribute("tutorId");
             request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(tutorId));
-            response.sendRedirect(request.getRequestURI());
+            request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
         }
     }
 
