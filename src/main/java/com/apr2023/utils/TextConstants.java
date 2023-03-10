@@ -31,5 +31,7 @@ public class TextConstants {
     public static final String FORM_PWD_FIELD_NAME = "pwdField";
     public static final String DB_CONFIG_PATH = "/WEB-INF/db.properties";
 
+    public static final String JSP_MODIFY_INTERN_PAGE = "/WEB-INF/pages/modifyIntern.jsp";
+
 }
 

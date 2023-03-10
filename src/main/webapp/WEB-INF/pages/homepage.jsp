@@ -81,9 +81,9 @@
               <td>  ${intern.note_com}  </td>
 
               <td>
-                <form method="post" action="PrepareModifyInternController">
+                <form action="PrepareModifyInternController" method="post">
                   <input type="hidden" name="internId" value="${intern.id}">
-                  <button name="action" type="submit">🖊️</button>
+                  <button type="submit" name='action'>🖊️</button>
                 </form>
               </td>
 
@@ -105,9 +105,6 @@
 
     <!-- add intern modal -->
     <jsp:include page="addIntern.jsp" />
-
-    <!-- modify intern modal -->
-    <jsp:include page="modifyIntern.jsp"/>
 
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </body>

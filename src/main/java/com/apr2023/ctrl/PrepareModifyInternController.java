@@ -47,23 +47,17 @@ public class PrepareModifyInternController extends HttpServlet {
         } else {
             DBActions dbActions = new DBActions(dbUrl, dbUser, dbPwd);
 
-            // Establish a connection to the database
-            Connection connection;
-            try {
-                connection = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
             // *** get intern infos ***
             //get intern id
             String internId = request.getParameter("internId");
             int idIntern = Integer.parseInt(internId);
 
             //get the info
+            HttpSession session = request.getSession();
+            int tutorId = (int) session.getAttribute("tutorId");
+            request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(tutorId));
             request.setAttribute("internInfo", dbActions.getInternInfoToModify(idIntern));
-            request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
-
+            request.getRequestDispatcher(TextConstants.JSP_MODIFY_INTERN_PAGE).forward(request, response);
             }
         }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
