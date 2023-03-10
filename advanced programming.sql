@@ -1,5 +1,3 @@
-USE sys;
-
 DROP TABLE IF EXISTS interns;
 DROP TABLE IF EXISTS tutors;
 
