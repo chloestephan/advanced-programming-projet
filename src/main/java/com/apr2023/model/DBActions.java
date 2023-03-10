@@ -130,4 +130,132 @@ public class DBActions {
 
         return intern;
     }
+
+    public boolean isCheckedCahier_Des_Charges(int idIntern) {
+        boolean isChecked = false;
+        String fullQuery = "SELECT CAHIER_DES_CHARGES FROM interns WHERE id = " + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                isChecked = rs.getBoolean("CAHIER_DES_CHARGES");
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return isChecked;
+    }
+
+    public boolean isCheckedFiche_Visite(int idIntern) {
+        boolean isChecked = false;
+        String fullQuery = "SELECT FICHE_VISITE FROM interns WHERE id = " + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                isChecked = rs.getBoolean("FICHE_VISITE");
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return isChecked;
+    }
+
+    public boolean isCheckedFiche_Evaluation(int idIntern) {
+        boolean isChecked = false;
+        String fullQuery = "SELECT FICHE_EVALUATION FROM interns WHERE id = " + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                isChecked = rs.getBoolean("FICHE_EVALUATION");
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return isChecked;
+    }
+
+    public boolean isCheckedSondage_Web(int idIntern) {
+        boolean isChecked = false;
+        String fullQuery = "SELECT SONDAGE_WEB FROM interns WHERE id = " + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                isChecked = rs.getBoolean("SONDAGE_WEB");
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return isChecked;
+    }
+
+    public boolean isCheckedRapport_Rendu(int idIntern) {
+        boolean isChecked = false;
+        String fullQuery = "SELECT RAPPORT_RENDU FROM interns WHERE id = " + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                isChecked = rs.getBoolean("RAPPORT_RENDU");
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return isChecked;
+    }
+
+    public boolean isCheckedSoutenance(int idIntern) {
+        boolean isChecked = false;
+        String fullQuery = "SELECT SOUTENANCE FROM interns WHERE id = " + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                isChecked = rs.getBoolean("SOUTENANCE");
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return isChecked;
+    }
+
+    public boolean isCheckedVisite_Planifiee(int idIntern) {
+        boolean isChecked = false;
+        String fullQuery = "SELECT VISITE_PLANIFIEE FROM interns WHERE id = " + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                isChecked = rs.getBoolean("VISITE_PLANIFIEE");
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return isChecked;
+    }
+
+    public boolean isCheckedVisite_Faite(int idIntern) {
+        boolean isChecked = false;
+        String fullQuery = "SELECT VISITE_FAITE FROM interns WHERE id = " + idIntern;
+        rs = getResultSet(fullQuery);
+
+        try {
+            while (rs.next()) {
+                isChecked = rs.getBoolean("VISITE_FAITE");
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error retrieving data: " + sqle.getMessage() + " " + sqle.getErrorCode());
+        }
+
+        return isChecked;
+    }
 }
