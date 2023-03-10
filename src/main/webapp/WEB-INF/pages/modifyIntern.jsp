@@ -46,42 +46,42 @@
 
                         <p>Merci de cocher si la personne stagiaire répond aux critères suivants :</p>
                         <div>
-                            <input id="cahierDesChargesModified" type="checkbox" name="cahierDesCharges" value="true" <c:if test="${isCheckedCDC}">checked="checked"</c:if>/>
+                            <input id="cahierDesChargesModified" type="checkbox" name="cahierDesChargesModified" value="true" <c:if test="${isCheckedCDC}">checked="checked"</c:if>/>
                             <label for="cahierDesChargesModified">Cahier des charges ?</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="ficheVisite" id="ficheVisiteModified" value="true" <c:if test="${isCheckedFV}">checked="checked"</c:if>/>
+                            <input type="checkbox" name="ficheVisiteModified" id="ficheVisiteModified" value="true" <c:if test="${isCheckedFV}">checked="checked"</c:if>/>
                             <label for="ficheVisiteModified">Fiche visite ?</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="ficheEvaluation" id="ficheEvaluationModified" value="true" <c:if test="${isCheckedFE}">checked="checked"</c:if>/>
+                            <input type="checkbox" name="ficheEvaluationModified" id="ficheEvaluationModified" value="true" <c:if test="${isCheckedFE}">checked="checked"</c:if>/>
                             <label for="ficheEvaluationModified">Fiche d'évaluation ?</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="sondageWeb" id="sondageWebModified" value="true" <c:if test="${isCheckedSW}">checked="checked"</c:if>/>
+                            <input type="checkbox" name="sondageWebModified" id="sondageWebModified" value="true" <c:if test="${isCheckedSW}">checked="checked"</c:if>/>
                             <label for="sondageWebModified">Sondage Web ?</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="rapportRendu" id="rapportRenduModified" value="true" <c:if test="${isCheckedRR}">checked="checked"</c:if>/>
+                            <input type="checkbox" name="rapportRenduModified" id="rapportRenduModified" value="true" <c:if test="${isCheckedRR}">checked="checked"</c:if>/>
                             <label for="rapportRenduModified">Rapport rendu ?</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="soutenance" id="soutenanceModified" value="true" <c:if test="${isCheckedS}">checked="checked"</c:if>/>
+                            <input type="checkbox" name="soutenanceModified" id="soutenanceModified" value="true" <c:if test="${isCheckedS}">checked="checked"</c:if>/>
                             <label for="soutenanceModified">Soutenance ?</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="visitePlanifiee" id="visitePlanifieeModified" value="true" <c:if test="${isCheckedVP}">checked="checked"</c:if>/>
+                            <input type="checkbox" name="visitePlanifieeModified" id="visitePlanifieeModified" value="true" <c:if test="${isCheckedVP}">checked="checked"</c:if>/>
                             <label for="visitePlanifieeModified">Visite planifiée ?</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="visiteFaite" id="visiteFaiteModified" value="true" <c:if test="${isCheckedVF}">checked="checked"</c:if>/>
+                            <input type="checkbox" name="visiteFaiteModified" id="visiteFaiteModified" value="true" <c:if test="${isCheckedVF}">checked="checked"</c:if>/>
                             <label for="visiteFaiteModified">Visite effectuée ?</label>
                         </div>
 

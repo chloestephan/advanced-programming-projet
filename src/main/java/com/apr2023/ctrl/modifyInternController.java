@@ -56,35 +56,32 @@ public class modifyInternController extends HttpServlet {
             String sql = TextConstants.QUERY_UPDATE_INTERN;
             PreparedStatement stmt = connection.prepareStatement(sql);
 
-            //get the parameters to insert into the database
-            String username = request.getParameter("firstName").toLowerCase() + "_" + request.getParameter("lastName").toLowerCase();
+            int internId = Integer.parseInt(request.getParameter("internId"));
 
-            String internId = request.getParameter("internId");
-            int IdInterParam = Integer.parseInt(internId);
+            String cahierDesChargesBool = request.getParameter("cahierDesChargesModified");
+            boolean cahierDesCharges = Boolean.parseBoolean(cahierDesChargesBool);
+            //boolean cahierDesCharges = cahierDesChargesBool != null && cahierDesChargesBool.equals("on");
 
-            String cahierDesChargesBool = request.getParameter("cahierDesCharges");
-            boolean cahierDesCharges = cahierDesChargesBool != null && cahierDesChargesBool.equals("on");
+            String ficheVisiteBool = request.getParameter("ficheVisiteModified");
+            boolean ficheVisite = Boolean.parseBoolean(ficheVisiteBool);
 
-            String ficheVisiteBool = request.getParameter("ficheVisite");
-            boolean ficheVisite = ficheVisiteBool != null && ficheVisiteBool.equals("on");
+            String ficheEvaluationBool = request.getParameter("ficheEvaluationModified");
+            boolean ficheEvaluation = Boolean.parseBoolean(ficheEvaluationBool);
 
-            String ficheEvaluationBool = request.getParameter("ficheEvaluation");
-            boolean ficheEvaluation = ficheEvaluationBool != null && ficheEvaluationBool.equals("on");
+            String sondageWebBool = request.getParameter("sondageWebModified");
+            boolean sondageWeb = Boolean.parseBoolean(sondageWebBool);
 
-            String sondageWebBool = request.getParameter("sondageWeb");
-            boolean sondageWeb = sondageWebBool != null && sondageWebBool.equals("on");
+            String rapportRenduBool = request.getParameter("rapportRenduModified");
+            boolean rapportRendu = Boolean.parseBoolean(rapportRenduBool);
 
-            String rapportRenduBool = request.getParameter("rapportRendu");
-            boolean rapportRendu = rapportRenduBool != null && rapportRenduBool.equals("on");
+            String soutenanceBool = request.getParameter("soutenanceModified");
+            boolean soutenance = Boolean.parseBoolean(soutenanceBool);
 
-            String soutenanceBool = request.getParameter("soutenance");
-            boolean soutenance = soutenanceBool != null && soutenanceBool.equals("on");
+            String visitePlanifieeBool = request.getParameter("visitePlanifieeModified");
+            boolean visitePlanifiee = Boolean.parseBoolean(visitePlanifieeBool);
 
-            String visitePlanifieeBool = request.getParameter("visitePlanifiee");
-            boolean visitePlanifiee = visitePlanifieeBool != null && visitePlanifieeBool.equals("on");
-
-            String visiteFaiteBool = request.getParameter("visiteFaite");
-            boolean visiteFaite = visiteFaiteBool != null && visiteFaiteBool.equals("on");
+            String visiteFaiteBool = request.getParameter("visiteFaiteModified");
+            boolean visiteFaite = Boolean.parseBoolean(visiteFaiteBool);
 
             //accept empty values for note tech and note com when modifying an intern
             String noteTechParam = request.getParameter("noteTechModified");
@@ -99,30 +96,27 @@ public class modifyInternController extends HttpServlet {
                 noteCom = Float.parseFloat(noteComParam);
             }
 
-            int InternId = Integer.parseInt(request.getParameter("internId"));
-
             // set the parameters of the sql request
             stmt.setString(1, request.getParameter("firstName"));
             stmt.setString(2, request.getParameter("lastName"));
-            stmt.setString(3, username);
-            stmt.setString(4, request.getParameter("email"));
-            stmt.setString(5, request.getParameter("groupe"));
-            stmt.setString(6, request.getParameter("debutDuStage"));
-            stmt.setString(7, request.getParameter("finDuStage"));
-            stmt.setString(8, request.getParameter("entreprise"));
-            stmt.setString(9, request.getParameter("maitreDeStage"));
-            stmt.setString(10, request.getParameter("adresse_stage"));
-            stmt.setBoolean(11, cahierDesCharges);
-            stmt.setBoolean(12, ficheVisite);
-            stmt.setBoolean(13, ficheEvaluation);
-            stmt.setBoolean(14, sondageWeb);
-            stmt.setBoolean(15, rapportRendu);
-            stmt.setBoolean(16, soutenance);
-            stmt.setBoolean(17, visitePlanifiee);
-            stmt.setBoolean(18, visiteFaite);
-            stmt.setFloat(19, noteTech);
-            stmt.setFloat(20, noteCom);
-            stmt.setInt(21, InternId);
+            stmt.setString(3, request.getParameter("email"));
+            stmt.setString(4, request.getParameter("groupe"));
+            stmt.setString(5, request.getParameter("debutDuStage"));
+            stmt.setString(6, request.getParameter("finDuStage"));
+            stmt.setString(7, request.getParameter("entreprise"));
+            stmt.setString(8, request.getParameter("maitreDeStage"));
+            stmt.setString(9, request.getParameter("adresse_stage"));
+            stmt.setBoolean(10, cahierDesCharges);
+            stmt.setBoolean(11, ficheVisite);
+            stmt.setBoolean(12, ficheEvaluation);
+            stmt.setBoolean(13, sondageWeb);
+            stmt.setBoolean(14, rapportRendu);
+            stmt.setBoolean(15, soutenance);
+            stmt.setBoolean(16, visitePlanifiee);
+            stmt.setBoolean(17, visiteFaite);
+            stmt.setFloat(18, noteTech);
+            stmt.setFloat(19, noteCom);
+            stmt.setInt(20, internId);
 
             stmt.executeUpdate();
             connection.close();

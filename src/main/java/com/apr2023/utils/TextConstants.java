@@ -20,7 +20,7 @@ public class TextConstants {
     public static final String QUERY_INSERT_NEW_INTERN_LINK_TO_TUTOR = "INSERT INTO association_tutor_interns (id_tutor, id_intern) VALUES (?, ?)";
     public static final String QUERY_DELETE_INTERN = "DELETE FROM interns WHERE id = ?";
     public static final String QUERY_DELETE_INTERN_LINK_TO_TUTOR = "DELETE FROM association_tutor_interns WHERE id_intern = ?";
-    public static final String QUERY_UPDATE_INTERN = "UPDATE interns SET firstname = ?, lastname = ?, username = ?, email = ?, groupe = ?, debut_stage = ?, fin_stage = ?, entreprise = ?, maitre_de_stage = ?, adresse_stage = ?, cahier_des_charges = ?, fiche_visite = ?, fiche_evaluation = ?, sondage_web = ?, rapport_rendu = ?, soutenance = ?, visite_planifiee = ?, visite_faite = ?, note_tech = ?, note_com = ? WHERE id = ?";
+    public static final String QUERY_UPDATE_INTERN = "UPDATE interns SET firstname = ?, lastname = ?, email = ?, groupe = ?, debut_stage = ?, fin_stage = ?, entreprise = ?, maitre_de_stage = ?, adresse_stage = ?, cahier_des_charges = ?, fiche_visite = ?, fiche_evaluation = ?, sondage_web = ?, rapport_rendu = ?, soutenance = ?, visite_planifiee = ?, visite_faite = ?, note_tech = ?, note_com = ? WHERE id = ?";
     public static final String QUERY_GET_ALL_INTERN_INFO = "SELECT * FROM interns WHERE id = ";
 
     //code efficiency
