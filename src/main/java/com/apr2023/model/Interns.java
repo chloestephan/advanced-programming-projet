@@ -37,6 +37,8 @@ public class Interns {
     private float note_tech;
     private float note_com;
 
+    private int id_tutor;
+
 
     public int getId() {
         return id;
@@ -212,6 +214,14 @@ public class Interns {
 
     public void setNote_com(float note_com) {
         this.note_com = note_com;
+    }
+
+    public int getId_Tutor() {
+        return id_tutor;
+    }
+
+    public void setId_Tutor(int id_tutor) {
+        this.id_tutor = id_tutor;
     }
 
 }

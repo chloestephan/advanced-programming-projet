@@ -53,6 +53,7 @@ public class addInternController extends HttpServlet {
             }
 
             // *** add intern info ***
+
             // get the sql request to insert into the database a new intern
             String sql = TextConstants.QUERY_INSERT_NEW_INTERN;
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -97,6 +98,9 @@ public class addInternController extends HttpServlet {
                 noteCom = Float.parseFloat(noteComParam);
             }
 
+            HttpSession session = request.getSession();
+            int tutorId = (int) session.getAttribute("tutorId");
+
             // set the parameters of the sql request
             stmt.setString(1, request.getParameter("firstName"));
             stmt.setString(2, request.getParameter("lastName"));
@@ -118,35 +122,12 @@ public class addInternController extends HttpServlet {
             stmt.setBoolean(18, visiteFaite);
             stmt.setFloat(19, noteTech);
             stmt.setFloat(20, noteCom);
+            stmt.setInt(21, tutorId);
 
             stmt.executeUpdate();
 
-            // *** link intern to tutor ***
-            //get intern id
-            String sqlGetInternId = TextConstants.QUERY_GET_INTERN_ID;
-            PreparedStatement stmtGetInternId = connection.prepareStatement(sqlGetInternId);
-            stmtGetInternId.setString(1, username);
-            ResultSet rs = stmtGetInternId.executeQuery();
-
-            if (rs.next()) {
-                int idIntern = rs.getInt("id");
-
-                //get tutor id from session
-                HttpSession session = request.getSession();
-                int tutorId = (int) session.getAttribute("tutorId");
-
-                //insert into database intern linked to tutor
-                String sqlLinkInternToTutor = TextConstants.QUERY_INSERT_NEW_INTERN_LINK_TO_TUTOR;
-                PreparedStatement stmtLinkInternToTutor = connection.prepareStatement(sqlLinkInternToTutor);
-                stmtLinkInternToTutor.setInt(1, tutorId);
-                stmtLinkInternToTutor.setInt(2, idIntern);
-                stmtLinkInternToTutor.executeUpdate();
-
-                request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(tutorId));
-                request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
-            } else {
-                request.setAttribute("errKey", TextConstants.ERROR_MESSAGE);
-            }
+            request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(tutorId));
+            request.getRequestDispatcher(TextConstants.JSP_HOME_PAGE).forward(request, response);
         }
     }
 
