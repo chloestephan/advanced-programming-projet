@@ -66,12 +66,6 @@ public class removeInternController extends HttpServlet {
 
             stmt.executeUpdate();
 
-            //delete the link between intern and tutor since the intern doesn't exist anymore
-            sql = TextConstants.QUERY_DELETE_INTERN_LINK_TO_TUTOR;
-            PreparedStatement stmt2 = connection.prepareStatement(sql);
-            stmt2.setInt(1, idIntern);
-            stmt2.executeUpdate();
-
             // Close the connection
             connection.close();
 

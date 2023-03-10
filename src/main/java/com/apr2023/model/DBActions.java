@@ -83,6 +83,7 @@ public class DBActions {
                 oneTutorAllInterns.setVisite_faite(rs.getBoolean("VISITE_FAITE"));
                 oneTutorAllInterns.setNote_tech(rs.getFloat("NOTE_TECH"));
                 oneTutorAllInterns.setNote_com(rs.getFloat("NOTE_COM"));
+                oneTutorAllInterns.setId_Tutor(rs.getInt("ID_TUTOR"));
 
                 listAssociationTutorInterns.add(oneTutorAllInterns);
             }
@@ -121,6 +122,7 @@ public class DBActions {
                 internInfo.setVisite_faite(rs.getBoolean("VISITE_FAITE"));
                 internInfo.setNote_tech(rs.getFloat("NOTE_TECH"));
                 internInfo.setNote_com(rs.getFloat("NOTE_COM"));
+                internInfo.setId_Tutor(rs.getInt("ID_TUTOR"));
 
                 intern.add(internInfo);
             }

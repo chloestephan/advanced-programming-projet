@@ -14,12 +14,10 @@ public class TextConstants {
     //sql queries
     public static final String QUERY_GET_TUTOR_INFO = "SELECT * FROM tutors WHERE username = ?";
     public static final String QUERY_GET_INTERN_ID = "SELECT id FROM interns WHERE username = ?";
-    public static final String QUERY_SELECT_INTERNS_FOR_ONE_TUTOR = "SELECT i.* FROM interns AS i INNER JOIN association_tutor_interns AS a ON i.id = a.id_intern WHERE a.id_tutor = ";
+    public static final String QUERY_SELECT_INTERNS_FOR_ONE_TUTOR = "SELECT * FROM INTERNS WHERE id_tutor =";
     public static final String QUERY_SELECT_TUTOR_NAME = "SELECT name FROM tutors WHERE id = ";
-    public static final String QUERY_INSERT_NEW_INTERN = "INSERT INTO interns (firstname, lastname, username, email, groupe, debut_stage, fin_stage, entreprise, maitre_de_stage, adresse_stage, cahier_des_charges, fiche_visite, fiche_evaluation, sondage_web, rapport_rendu, soutenance, visite_planifiee, visite_faite, note_tech, note_com) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    public static final String QUERY_INSERT_NEW_INTERN_LINK_TO_TUTOR = "INSERT INTO association_tutor_interns (id_tutor, id_intern) VALUES (?, ?)";
+    public static final String QUERY_INSERT_NEW_INTERN = "INSERT INTO interns (firstname, lastname, username, email, groupe, debut_stage, fin_stage, entreprise, maitre_de_stage, adresse_stage, cahier_des_charges, fiche_visite, fiche_evaluation, sondage_web, rapport_rendu, soutenance, visite_planifiee, visite_faite, note_tech, note_com, id_tutor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     public static final String QUERY_DELETE_INTERN = "DELETE FROM interns WHERE id = ?";
-    public static final String QUERY_DELETE_INTERN_LINK_TO_TUTOR = "DELETE FROM association_tutor_interns WHERE id_intern = ?";
     public static final String QUERY_UPDATE_INTERN = "UPDATE interns SET firstname = ?, lastname = ?, email = ?, groupe = ?, debut_stage = ?, fin_stage = ?, entreprise = ?, maitre_de_stage = ?, adresse_stage = ?, cahier_des_charges = ?, fiche_visite = ?, fiche_evaluation = ?, sondage_web = ?, rapport_rendu = ?, soutenance = ?, visite_planifiee = ?, visite_faite = ?, note_tech = ?, note_com = ? WHERE id = ?";
     public static final String QUERY_GET_ALL_INTERN_INFO = "SELECT * FROM interns WHERE id = ";
 
