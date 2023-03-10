@@ -12,6 +12,7 @@
         <title>Modifier un.e stagiaire</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <style><%@include file="/WEB-INF/css/modify.css"%></style>
     </header>
     <body>
         <div class="header">
@@ -28,7 +29,7 @@
             </div>
         </div>
                     <div class="ModifyIntern">
-                        <form action="PrepareModifyInternController" method="post">
+                        <form action="modifyInternController" method="post">
                             <p>Merci de remplir les informations de la personne stagiaire :</p>
                             <c:forEach items="${internInfo}" var="internInfo">
                                 <input type="text" placeholder="Prénom(s)" name="firstName" id="firstNameModified" value="${internInfo.firstname}">
@@ -43,56 +44,53 @@
 
                                 <p>Merci de cocher si la personne stagiaire répond aux critères suivants :</p>
                                 <div>
-                                    <input type="checkbox" name="cahierDesCharges" id="cahierDesChargesModified" value="${internInfo.cahier_des_charges}">
+                                    <input type="checkbox" name="cahierDesCharges" id="cahierDesChargesModified">
                                     <label for="cahierDesChargesModified">Cahier des charges ?</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="ficheVisite" id="ficheVisiteModified" value="${internInfo.fiche_visite}">
+                                    <input type="checkbox" name="ficheVisite" id="ficheVisiteModified">
                                     <label for="ficheVisiteModified">Fiche visite ?</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" name="ficheEvaluation" id="ficheEvaluationModified" value="${internInfo.fiche_evaluation}">
+                                    <input type="checkbox" name="ficheEvaluation" id="ficheEvaluationModified">
                                     <label for="ficheEvaluationModified">Fiche d'évaluation ?</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" name="sondageWeb" id="sondageWebModified" value="${internInfo.sondage_web}">
+                                    <input type="checkbox" name="sondageWeb" id="sondageWebModified">
                                     <label for="sondageWebModified">Sondage Web ?</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" name="rapportRendu" id="rapportRenduModified" value="${internInfo.fiche_visite}">
+                                    <input type="checkbox" name="rapportRendu" id="rapportRenduModified">
                                     <label for="rapportRenduModified">Rapport rendu ?</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" name="soutenance" id="soutenanceModified" value="${internInfo.rapport_rendu}">
+                                    <input type="checkbox" name="soutenance" id="soutenanceModified">
                                     <label for="soutenanceModified">Soutenance ?</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" name="visitePlanifiee" id="visitePlanifieeModified" value="${internInfo.visite_planifiee}">
+                                    <input type="checkbox" name="visitePlanifiee" id="visitePlanifieeModified">
                                     <label for="visitePlanifieeModified">Visite planifiée ?</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" name="visiteFaite" id="visiteFaiteModified" value="${internInfo.visite_faite}">
+                                    <input type="checkbox" name="visiteFaite" id="visiteFaiteModified">
                                     <label for="visiteFaiteModified">Visite effectuée ?</label>
                                 </div>
 
                                 <div>
                                     <input type="text" placeholder="Note technique" name="noteTech" id="noteTechModified" value="${internInfo.note_tech}">
                                     <input type="text" placeholder="Note com" name="noteCom" id="noteComModified" value="${internInfo.note_com}">
+                                    <input type="hidden" name="internId" value="${internInfo.id}">
                                 </div>
                             </c:forEach>
                             <button type="submit" name="action" class="submitModifyIntern" id="${tutor.id}">Ajouter</button>
                         </form>
                     </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </body>
 </html>
