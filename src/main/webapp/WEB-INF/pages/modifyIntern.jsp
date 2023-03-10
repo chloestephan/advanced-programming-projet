@@ -28,69 +28,71 @@
                 </form>
             </div>
         </div>
-                    <div class="ModifyIntern">
-                        <form action="modifyInternController" method="post">
-                            <p>Merci de remplir les informations de la personne stagiaire :</p>
-                            <c:forEach items="${internInfo}" var="internInfo">
-                                <input type="text" placeholder="Prénom(s)" name="firstName" id="firstNameModified" value="${internInfo.firstname}">
-                                <input type="text" placeholder="Nom de famille" name="lastName" id="lastNameModified" value="${internInfo.lastname}">
-                                <input type="text" placeholder="Email" name="email" id="emailModified" value="${internInfo.email}">
-                                <input type="text" placeholder="Groupe" name="groupe" id="groupeModified" value="${internInfo.groupe}">
-                                <input type="date" placeholder="Debut du stage" name="debutDuStage" id="debutDuStageModified" value="${internInfo.debut_stage}">
-                                <input type="date" placeholder="Fin du stage" name="finDuStage" id="finDuStageModified" value="${internInfo.fin_stage}">
-                                <input type="text" placeholder="Entreprise du stage" name="entreprise" id="entrepriseModified" value="${internInfo.entreprise}">
-                                <input type="text" placeholder="Maitre de stage" name="maitreDeStage" id="maitreDeStageModified" value="${internInfo.maitre_de_stage}">
-                                <input type="text" placeholder="Adresse du lieu du stage" name="adresse_stage" id="adresse_stageModified" value="${internInfo.adresse_stage}">
+            <div class="ModifyIntern">
+                <form action="modifyInternController" method="post">
+                    <p>Merci de remplir les informations de la personne stagiaire :</p>
+                    <c:forEach items="${internInfo}" var="internInfo">
+                        <input type="text" placeholder="Prénom(s)" name="firstName" id="firstNameModified" value="${internInfo.firstname}">
+                        <input type="text" placeholder="Nom de famille" name="lastName" id="lastNameModified" value="${internInfo.lastname}">
+                        <input type="text" placeholder="Email" name="email" id="emailModified" value="${internInfo.email}">
+                        <input type="text" placeholder="Groupe" name="groupe" id="groupeModified" value="${internInfo.groupe}">
+                        <input type="date" placeholder="Debut du stage" name="debutDuStage" id="debutDuStageModified" value="${internInfo.debut_stage}">
+                        <input type="date" placeholder="Fin du stage" name="finDuStage" id="finDuStageModified" value="${internInfo.fin_stage}">
+                        <input type="text" placeholder="Entreprise du stage" name="entreprise" id="entrepriseModified" value="${internInfo.entreprise}">
+                        <input type="text" placeholder="Maitre de stage" name="maitreDeStage" id="maitreDeStageModified" value="${internInfo.maitre_de_stage}">
+                        <input type="text" placeholder="Adresse du lieu du stage" name="adresse_stage" id="adresse_stageModified" value="${internInfo.adresse_stage}">
 
-                                <p>Merci de cocher si la personne stagiaire répond aux critères suivants :</p>
-                                <div>
-                                    <input type="checkbox" name="cahierDesCharges" id="cahierDesChargesModified">
-                                    <label for="cahierDesChargesModified">Cahier des charges ?</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="ficheVisite" id="ficheVisiteModified">
-                                    <label for="ficheVisiteModified">Fiche visite ?</label>
-                                </div>
+                        <p>Merci de cocher si la personne stagiaire répond aux critères suivants :</p>
+                        <div>
+                            <input type="checkbox" name="cahierDesCharges" id="cahierDesChargesModified">
+                            <label for="cahierDesChargesModified">Cahier des charges ?</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="ficheVisite" id="ficheVisiteModified">
+                            <label for="ficheVisiteModified">Fiche visite ?</label>
+                        </div>
 
-                                <div>
-                                    <input type="checkbox" name="ficheEvaluation" id="ficheEvaluationModified">
-                                    <label for="ficheEvaluationModified">Fiche d'évaluation ?</label>
-                                </div>
+                        <div>
+                            <input type="checkbox" name="ficheEvaluation" id="ficheEvaluationModified">
+                            <label for="ficheEvaluationModified">Fiche d'évaluation ?</label>
+                        </div>
 
-                                <div>
-                                    <input type="checkbox" name="sondageWeb" id="sondageWebModified">
-                                    <label for="sondageWebModified">Sondage Web ?</label>
-                                </div>
+                        <div>
+                            <input type="checkbox" name="sondageWeb" id="sondageWebModified">
+                            <label for="sondageWebModified">Sondage Web ?</label>
+                        </div>
 
-                                <div>
-                                    <input type="checkbox" name="rapportRendu" id="rapportRenduModified">
-                                    <label for="rapportRenduModified">Rapport rendu ?</label>
-                                </div>
+                        <div>
+                            <input type="checkbox" name="rapportRendu" id="rapportRenduModified">
+                            <label for="rapportRenduModified">Rapport rendu ?</label>
+                        </div>
 
-                                <div>
-                                    <input type="checkbox" name="soutenance" id="soutenanceModified">
-                                    <label for="soutenanceModified">Soutenance ?</label>
-                                </div>
+                        <div>
+                            <input type="checkbox" name="soutenance" id="soutenanceModified">
+                            <label for="soutenanceModified">Soutenance ?</label>
+                        </div>
 
-                                <div>
-                                    <input type="checkbox" name="visitePlanifiee" id="visitePlanifieeModified">
-                                    <label for="visitePlanifieeModified">Visite planifiée ?</label>
-                                </div>
+                        <div>
+                            <input type="checkbox" name="visitePlanifiee" id="visitePlanifieeModified">
+                            <label for="visitePlanifieeModified">Visite planifiée ?</label>
+                        </div>
 
-                                <div>
-                                    <input type="checkbox" name="visiteFaite" id="visiteFaiteModified">
-                                    <label for="visiteFaiteModified">Visite effectuée ?</label>
-                                </div>
+                        <div>
+                            <input type="checkbox" name="visiteFaite" id="visiteFaiteModified">
+                            <label for="visiteFaiteModified">Visite effectuée ?</label>
+                        </div>
 
-                                <div>
-                                    <input type="text" placeholder="Note technique" name="noteTech" id="noteTechModified" value="${internInfo.note_tech}">
-                                    <input type="text" placeholder="Note com" name="noteCom" id="noteComModified" value="${internInfo.note_com}">
-                                    <input type="hidden" name="internId" value="${internInfo.id}">
-                                </div>
-                            </c:forEach>
-                            <button type="submit" name="action" class="submitModifyIntern" id="${tutor.id}">Ajouter</button>
-                        </form>
-                    </div>
+                        <div>
+                            <input type="text" placeholder="Note technique" name="noteTech" id="noteTechModified" value="${internInfo.note_tech}">
+                            <label for="noteTechModified">Note technique :</label>
+                            <input type="text" placeholder="Note com" name="noteCom" id="noteComModified" value="${internInfo.note_com}">
+                            <label for="noteComModified">Note com :</label>
+                            <input type="hidden" name="internId" value="${internInfo.id}">
+                        </div>
+                    </c:forEach>
+                    <button type="submit" name="action" class="submitModifyIntern" id="${tutor.id}">Modifier</button>
+                </form>
+            </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </body>
 </html>
