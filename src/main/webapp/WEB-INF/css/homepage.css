@@ -43,6 +43,20 @@ body {
   cursor: pointer;
 }
 
+.button {
+  background-color: #009879;
+  border: none;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 25px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 .active {
   background-color: #009879;
   color: #f1f1f1;
@@ -70,20 +84,6 @@ body {
   text-decoration: none;
   color: #009879;
   cursor: default;
-}
-
-.button {
-  background-color: #009879;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 5px;
-  cursor: pointer;
-  border-radius: 6px;
 }
 
 /* body */

@@ -21,6 +21,9 @@
     <div class="header">
       <a class="logo">GIFT</a>
       <!-- TODO : search bar -->
+      <button type="button" class="button" data-toggle="modal" data-target="#modalAddIntern">
+        Ajouter un.e stagiaire
+      </button>
 
       <div class="header-right">
         <c:set var="tutorName" value="${sessionScope.tutorName}" />
@@ -98,10 +101,6 @@
         </table>
       </form>
     </div>
-
-    <button type="button" class="button" data-toggle="modal" data-target="#modalAddIntern">
-      Ajouter un.e stagiaire
-    </button>
 
     <!-- add intern modal -->
     <jsp:include page="addIntern.jsp" />
