@@ -11,11 +11,11 @@
 
     <form name='myform' action="Controller">
         <div class="container">
-            <label for="loginField"><b>Nom d'utilisateur</b></label>
-            <input type="text" placeholder="Nom d'utilisateur" name="loginField" required>
+            <label for="loginField">Nom d'utilisateur</label>
+            <input type="text" placeholder="Nom d'utilisateur" name="loginField" id ="loginField" required>
 
-            <label for="pwdField"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Mot de passe"" name="pwdField" required>
+            <label for="pwdField">Mot de passe</label>
+            <input type="password" placeholder="Mot de passe" name="pwdField" id="pwdField" required>
 
             <button type="submit" name='action'>Se connecter</button>
         </div>

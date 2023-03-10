@@ -57,6 +57,15 @@ public class PrepareModifyInternController extends HttpServlet {
             int tutorId = (int) session.getAttribute("tutorId");
             request.setAttribute("listInternsPerTutor", dbActions.getAssociationTutorAndInterns(tutorId));
             request.setAttribute("internInfo", dbActions.getInternInfoToModify(idIntern));
+            request.setAttribute("isCheckedCDC", dbActions.isCheckedCahier_Des_Charges(idIntern));
+            request.setAttribute("isCheckedFV", dbActions.isCheckedFiche_Visite(idIntern));
+            request.setAttribute("isCheckedFE", dbActions.isCheckedFiche_Evaluation(idIntern));
+            request.setAttribute("isCheckedSW", dbActions.isCheckedSondage_Web(idIntern));
+            request.setAttribute("isCheckedRR", dbActions.isCheckedRapport_Rendu(idIntern));
+            request.setAttribute("isCheckedS", dbActions.isCheckedSoutenance(idIntern));
+            request.setAttribute("isCheckedVP", dbActions.isCheckedVisite_Planifiee(idIntern));
+            request.setAttribute("isCheckedVF", dbActions.isCheckedVisite_Faite(idIntern));
+
             request.getRequestDispatcher(TextConstants.JSP_MODIFY_INTERN_PAGE).forward(request, response);
             }
         }
