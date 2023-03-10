@@ -4,7 +4,7 @@ form {
     border: 3px solid #f1f1f1;
     width: 40%;
     margin: 0 auto;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 input[type=text], input[type=password] {
@@ -24,6 +24,7 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 6px;
 }
 
 button:hover {
