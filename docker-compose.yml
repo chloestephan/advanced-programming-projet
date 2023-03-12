@@ -1,10 +1,23 @@
 version: '3.9'
 services:
-  db:
+  mysqldb:
+    container_name: gift-mysqldb
     image: mysql:8.0
-    restart: always
     environment:
-      MYSQL_DATABASE: 'gift'
-      MYSQL_ROOT_PASSWORD: password123
+      - MYSQL_DATABASE=gift
+      - MYSQL_ROOT_PASSWORD=password123
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+
+  app:
+    container_name: gift-app
+    depends_on:
+      - mysqldb
+    build:
+      context: .
+      args:
+        - MYSQL_URL=mysql://mysqldb:3306/gift
+        - MYSQLUSER=root
+        - MYSQLPASSWORD=password123
     ports:
-      - '3306:3306'
+      - "8080:8080"

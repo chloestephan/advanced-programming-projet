@@ -15,6 +15,15 @@ You can access a hosted version of the project [here](https://gift-advanced-prog
 - test / pass
 - johnd / pass
 
+### Run locally
+
+To run the app locally you can run
+
+```
+docker compose up --build
+```
+
+You will then fint the app at: http://localhost:8080
 
 ## Link to our video
 
