@@ -16,21 +16,6 @@ The site is redeployed every time the ```master``` branch is updated.
 - test / pass
 - johnd / pass
 
-## Features:
+## Link to our video
 
-- JPA, Easy to change database without changing code.
-- Authentication, passwords are encrypted using ```bcrypt```
-- 30 mintue sessions after login
-- REST endpoint: ```/api/interns```
-- Server side data validation: ex => Internship form, refused if grades aren't between 0 and 20,...
-- Search bar, looking for values in many different columns.
-- Add, Remove and modify internships.
-- Layout management: Views are modular (ex: header doesn't need to be declared in every view, only content)
-- Custom error handling, with personalized error page
-
-## Architecture
-
-- We used the MVC Pattern.
-- Access to the database is separated into **Services**.
-- **Controllers** have very little logic included, they just call **services** and return **views**.
-- **Views** take the data from **controllers** and displays it.
+You can access our video [here]().
