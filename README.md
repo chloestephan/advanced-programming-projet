@@ -11,12 +11,12 @@ You can access a hosted version of the project here [here](https://gift-advanced
 The site is redeployed every time the ```master``` branch is updated.
 
 
-### Test credentials:
+### Test credentials
 
 - test / pass
 - johnd / pass
 
-## Features: 
+## Features:
 
 - JPA, Easy to change database without changing code.
 - Authentication, passwords are encrypted using ```bcrypt```
@@ -32,3 +32,5 @@ The site is redeployed every time the ```master``` branch is updated.
 
 - We used the MVC Pattern.
 - Access to the database is separated into **Services**.
+- **Controllers** have very little logic included, they just call *services* and return *views*
+- *Views* take the data from *controllers* and displays it.
