@@ -26,11 +26,11 @@ The site is redeployed every time the ```master``` branch is updated.
 - Search bar, looking for values in many different columns.
 - Add, Remove and modify internships.
 - Layout management: Views are modular (ex: header doesn't need to be declared in every view, only content)
-
+- Custom error handling, with personalized error page
 
 ## Architecture
 
 - We used the MVC Pattern.
 - Access to the database is separated into **Services**.
-- **Controllers** have very little logic included, they just call *services* and return *views*
-- *Views* take the data from *controllers* and displays it.
+- **Controllers** have very little logic included, they just call **services** and return **views**.
+- **Views** take the data from **controllers** and displays it.
