@@ -6,8 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ST2APR_2023_Employees_JDBC" />
+        <module name="gift" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gift" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gift" options="-parameters" />
+    </option>
   </component>
 </project>

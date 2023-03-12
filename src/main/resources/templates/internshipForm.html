@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+
+<div layout:fragment="content">
+
+    <div class="container p-3 bg-light card shadow-sm">
+
+    <h1 class="mb-3 fw-bold" th:text="${internship.id} ? 'Modifier le Stage' : 'Ajouter un stage'">Modifier le Stage</h1>
+
+    <form action="#" th:action="@{/internships/save}" th:object="${internship}" method="POST">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title mb-3"><b>Informations générales</b></h5>
+                <div class="mb-3">
+                    <label class="form-label">Étudiant</label>
+                    <select class="form-select" th:classappend="${#fields.hasErrors('intern')}? 'is-invalid'" th:field="*{intern}">
+                        <option value="">Choisir un étudiant</option>
+                        <option th:each="intern : ${interns}" th:value="${intern.id}" th:text="${intern.firstname + ' ' + intern.lastname}">Étudiants</option>
+                    </select>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('intern')}" th:errors="*{intern}">
+                        Error Message
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tuteur école</label>
+                    <select class="form-select" th:classappend="${#fields.hasErrors('tutor')}? 'is-invalid'" th:field="*{tutor}">
+                        <option value="">Choisir un tuteur</option>
+                        <option th:each="tutor : ${tutors}" th:value="${tutor.id}" th:text="${tutor.firstname + ' ' + tutor.lastname}">Tuteurs</option>
+                    </select>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('tutor')}" th:errors="*{tutor}">
+                        Error Message
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">Date de début</label>
+                        <input type="date" class="form-control" th:classappend="${#fields.hasErrors('startDate')}? 'is-invalid'" th:field="*{startDate}">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">
+                            Error Message
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Date de fin</label>
+                        <input type="date" class="form-control" th:classappend="${#fields.hasErrors('endDate')}? 'is-invalid'" th:field="*{endDate}">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}">
+                            Error Message
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title mb-3"><b>Entreprise</b></h5>
+                <div class="mb-3">
+                    <label class="form-label">Nom</label>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('company')}? 'is-invalid'" th:field="*{company}">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('company')}" th:errors="*{company}">
+                        Error Message
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Adresse</label>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('address')}? 'is-invalid'" th:field="*{address}">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">
+                        Error Message
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Maître de stage</label>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('supervisor')}? 'is-invalid'" th:field="*{supervisor}">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('supervisor')}" th:errors="*{supervisor}">
+                        Error Message
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title mb-3"><b>Documents</b></h5>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{specifications}">
+                    <label class="form-check-label">Cahier des charges</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{visitSheetCompleted}">
+                    <label class="form-check-label" >Fiche de visite</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{surveySubmitted}">
+                    <label class="form-check-label">Sondage Web</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{reportSubmitted}">
+                    <label class="form-check-label">Rapport de stage</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{evaluationSubmitted}">
+                    <label class="form-check-label">Fiche d'évaluation</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title mb-3"><b>Suivi</b></h5>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{visitPlanned}">
+                    <label class="form-check-label">Visite planifiée ?</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{visitDone}">
+                    <label class="form-check-label">Visite effectuée ?</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{presentationDone}">
+                    <label class="form-check-label">Soutenance effectuée ?</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title mb-3"><b>Notation</b></h5>
+                <div class="mb-3">
+                    <label class="form-label">Note technique</label>
+                    <input type="number" step="any" class="form-control" th:classappend="${#fields.hasErrors('technicalGrade')}? 'is-invalid'" th:field="*{technicalGrade}">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('technicalGrade')}" th:errors="*{technicalGrade}">
+                        Error Message
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Note de communication</label>
+                    <input type="number" step="any" class="form-control" th:classappend="${#fields.hasErrors('communicationGrade')}? 'is-invalid'" th:field="*{communicationGrade}">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('communicationGrade')}" th:errors="*{communicationGrade}">
+                        Error Message
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Valider</button>
+    </form>
+    </div>
+</div>
+
+</body>
+</html>

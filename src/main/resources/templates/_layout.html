@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>GIFT - Intern Follow-up Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="bg-light min-vh-100 d-flex flex-column">
+<header>
+    <div class="px-3 py-2 bg-dark text-white mb-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="/" class="d-flex align-items-center me-auto text-light text-decoration-none gap-2">
+                    <i class="bi-calendar3-week d-block text-center " style="font-size: 32px;"></i>
+                    <span class="fs-2 fw-bold"><i>GIFT</i></span>
+                </a>
+
+                <ul class="nav col-lg-auto justify-content-center text-small">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi-person-circle d-block text-center " style="font-size: 24px;"></i>
+                            <span th:text="${#authentication.getPrincipal().getFullName()}"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" th:href="@{/logout}">Se déconnecter</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!--  Page content will go in this div  -->
+    <div layout:fragment="content" class="flex-grow-1">
+    </div>
+
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center pt-3 my-4 border-top">
+        <div class="d-flex align-items-center">
+            <span class="mb-md-0 text-muted"><i>GIFT</i> - Made by Alex SALMON, Antoine RECIO ANDRADES, Bastien TROUBAT and Chloé STEPHAN</span>
+        </div>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
+

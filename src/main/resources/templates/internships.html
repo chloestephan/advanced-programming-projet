@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+
+    <div class="mx-3 card p-3 shadow-sm">
+
+    <div th:if="${message}" class="alert alert-success" role="alert" th:text="${message}">
+        Message Content
+    </div>
+
+        <h1 th:if="${all}" class="mb-3 fw-bold">Tous les stages</h1>(<a th:href="@{/internships}" class="text-dark">Voir les miens</a>)
+        <h1 th:unless="${all}" class="mb-3 fw-bold">Mes stages attribués (<a th:href="@{/internships/all}"  class="text-dark">Voir tout</a>)</h1>
+
+
+        <div class="d-flex gap-3 justify-content-between mb-3">
+    <a class="btn btn-primary flex-shrink-0" type="button" th:href="@{/internships/new}"><i class="bi bi-plus-lg"></i> Ajouter un stage</a>
+
+    <form class="flex-grow-1" th:action="@{/internships/all}" method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Rechercher un stage (étudiant, entreprise, maitre de stage, ...)" th:name="query">
+            <button type="submit"  class="btn btn-outline-primary"><i class="bi bi-search"></i> Chercher</button>
+        </div>
+    </form>
+</div>
+
+        <div th:unless="${#lists.size(internships)}">
+            <p class="text-center fs-4" >Pas de stages trouvés</p>
+        </div>
+    <div th:if="${#lists.size(internships)}" class="table-responsive card">
+        <table class="table table-striped align-middle table-bordered text-center">
+            <thead class="table-dark">
+            <tr>
+                <th>Groupe</th>
+                <th>Étudiant</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Entreprise</th>
+                <th>Maître stage</th>
+                <th>Cahier des charges</th>
+                <th>Fiche visite</th>
+                <th>Sondage</th>
+                <th>Rapport</th>
+                <th>Fiche éval.</th>
+                <th>Visite Planifiée</th>
+                <th>Visite faite</th>
+                <th>Soutenance faite</th>
+                <th>Note Tech.</th>
+                <th>Note Com.</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="internship : ${internships}" th:id="${internship.intern.id}">
+                <td th:text="${internship.intern.groupe}">SE2</td>
+                <td th:text="|${internship.intern.firstname} ${internship.intern.lastname}|">John Smith</td>
+                <td th:text="${{internship.startDate}}">2023-04-03</td>
+                <td th:text="${{internship.endDate}}">2023-09-30</td>
+                <td th:text="${internship.company}">Company</td>
+                <td th:text="${internship.supervisor}">Jane Doe</td>
+                <td><i th:class="${internship.specifications} ? 'bi bi-check' :  'bi bi-x'" style="font-size: 24px;"></i></td>
+                <td><i th:class="${internship.visitSheetCompleted} ? 'bi bi-check' :  'bi bi-x'" style="font-size: 24px;"></i></td>
+                <td><i th:class="${internship.surveySubmitted} ? 'bi bi-check' :  'bi bi-x'" style="font-size: 24px;"></i></td>
+                <td><i th:class="${internship.reportSubmitted} ? 'bi bi-check' :  'bi bi-x'" style="font-size: 24px;"></i></td>
+                <td><i th:class="${internship.evaluationSubmitted} ? 'bi bi-check' :  'bi bi-x'" style="font-size: 24px;"></i></td>
+                <td><i th:class="${internship.visitPlanned} ? 'bi bi-check' :  'bi bi-x'" style="font-size: 24px;"></i></td>
+                <td><i th:class="${internship.visitDone} ? 'bi bi-check' :  'bi bi-x'" style="font-size: 24px;"></i></td>
+                <td><i th:class="${internship.presentationDone} ? 'bi bi-check' :  'bi bi-x'" style="font-size: 24px;"></i></td>
+                <td th:text="${internship.technicalGrade}">17.5</td>
+                <td th:text="${internship.communicationGrade}">18.5</td>
+                <td nowrap="nowrap text-center">
+                    <a th:href="@{/internships/edit/{id}(id=${internship.id})}" type="button" class="btn btn-primary btn-sm"><i class="bi bi-pencil-fill" ></i></a>
+                    <a th:href="@{/internships/delete/{id}(id=${internship.id})}" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>
