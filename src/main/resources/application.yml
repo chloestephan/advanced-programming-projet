@@ -10,6 +10,6 @@ spring:
 #      ddl-auto: none
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/gift
-    username: root
-    password: password123
+    url: jdbc:mysql://${MYSQLHOST}:${MYSQLPORT}/gift
+    username: ${MYSQLUSER}
+    password: ${MYSQLPASSWORD}
