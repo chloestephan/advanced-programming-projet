@@ -18,4 +18,4 @@ You can access a hosted version of the project [here](https://gift-advanced-prog
 
 ## Link to our video
 
-You can access our video [here]().
+You can access our video [here](https://www.youtube.com/watch?v=EB2WePUYHaw).
