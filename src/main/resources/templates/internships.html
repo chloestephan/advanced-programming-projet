@@ -12,7 +12,7 @@
         Message Content
     </div>
 
-        <h1 th:if="${all}" class="mb-3 fw-bold">Tous les stages</h1>(<a th:href="@{/internships}" class="text-dark">Voir les miens</a>)
+        <h1 th:if="${all}" class="mb-3 fw-bold">Tous les stages (<a th:href="@{/internships}" class="text-dark">Voir les miens</a>)</h1>
         <h1 th:unless="${all}" class="mb-3 fw-bold">Mes stages attribués (<a th:href="@{/internships/all}"  class="text-dark">Voir tout</a>)</h1>
 
 
