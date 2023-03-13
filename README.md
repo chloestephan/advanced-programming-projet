@@ -1,5 +1,9 @@
 # Project - Advanced programming
 
+## Authors
+
+Chloé STEPHAN, Alex SALMON, Bastien TROUBAT, Antoine RECIO ANDRADES
+
 ## Code repository
 
 The code for the project is accessible [here](https://github.com/chloestephan/ST2APR_2023_Employees_JDBC_TODO).
